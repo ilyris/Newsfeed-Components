@@ -71,8 +71,40 @@ const data = [
         Castform Lotad the power that's inside Burnt Berry Makuhita. Ghost Ariados Corphish Dusclops Golbat Gligar Zweilous.`
   },
   {
-    title: 'Professional Software Development in 2019',
-    date: 'Jan 1st, 2019',
+    title: 'Refactoring my project from vanilla javascript to React.. How was it?',
+    date: 'october 31st, 2019',
+    firstParagraph: `Hodor hodor HODOR! Hodor hodor - hodor, hodor. Hodor hodor... Hodor hodor hodor; hodor hodor. Hodor hodor hodor, hodor, hodor
+          hodor. Hodor, hodor. Hodor. Hodor, hodor - hodor... Hodor hodor hodor; hodor HODOR hodor, hodor hodor?! Hodor hodor, hodor.
+          Hodor hodor hodor hodor hodor! Hodor hodor - HODOR hodor, hodor hodor hodor hodor hodor; hodor hodor? `,
+
+    secondParagraph: `Hodor, hodor. Hodor. Hodor, hodor, hodor. Hodor hodor, hodor. Hodor hodor, hodor, hodor hodor. Hodor! Hodor hodor, hodor;
+          hodor hodor hodor? Hodor, hodor. Hodor. Hodor, hodor - HODOR hodor, hodor hodor hodor! Hodor, hodor. Hodor. Hodor, HODOR
+          hodor, hodor hodor, hodor, hodor hodor. Hodor hodor - hodor - hodor... Hodor hodor hodor hodor hodor hodor hodor?! Hodor
+          hodor - hodor hodor hodor. Hodor. Hodor hodor... Hodor hodor hodor hodor hodor? `,
+
+    thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
+          Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
+          Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'My road to becoming a software engineer',
+    date: 'Feb 5th, 2018',
+    firstParagraph: `Hodor hodor HODOR! Hodor hodor - hodor, hodor. Hodor hodor... Hodor hodor hodor; hodor hodor. Hodor hodor hodor, hodor, hodor
+          hodor. Hodor, hodor. Hodor. Hodor, hodor - hodor... Hodor hodor hodor; hodor HODOR hodor, hodor hodor?! Hodor hodor, hodor.
+          Hodor hodor hodor hodor hodor! Hodor hodor - HODOR hodor, hodor hodor hodor hodor hodor; hodor hodor? `,
+
+    secondParagraph: `Hodor, hodor. Hodor. Hodor, hodor, hodor. Hodor hodor, hodor. Hodor hodor, hodor, hodor hodor. Hodor! Hodor hodor, hodor;
+          hodor hodor hodor? Hodor, hodor. Hodor. Hodor, hodor - HODOR hodor, hodor hodor hodor! Hodor, hodor. Hodor. Hodor, HODOR
+          hodor, hodor hodor, hodor, hodor hodor. Hodor hodor - hodor - hodor... Hodor hodor hodor hodor hodor hodor hodor?! Hodor
+          hodor - hodor hodor hodor. Hodor. Hodor hodor... Hodor hodor hodor hodor hodor? `,
+
+    thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
+          Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
+          Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'This is my third article',
+    date: 'Dec 12th, 2019',
     firstParagraph: `Hodor hodor HODOR! Hodor hodor - hodor, hodor. Hodor hodor... Hodor hodor hodor; hodor hodor. Hodor hodor hodor, hodor, hodor
           hodor. Hodor, hodor. Hodor. Hodor, hodor - hodor... Hodor hodor hodor; hodor HODOR hodor, hodor hodor?! Hodor hodor, hodor.
           Hodor hodor hodor hodor hodor! Hodor hodor - HODOR hodor, hodor hodor hodor hodor hodor; hodor hodor? `,
@@ -112,3 +144,52 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+function createArticleComponent(newsfeedObject){
+
+  // Create elements
+  const articleContainer = document.createElement("div");
+  const articleTitle = document.createElement("h2");
+  const articlePublishDate = document.createElement("p");
+  const firstParagraphContent = document.createElement("p");
+  const secondParagraphContent = document.createElement("p");
+  const thirdParagraphContent = document.createElement("p");
+  const expandButton = document.createElement("span");
+
+  // Append elements to container
+  articleContainer.appendChild(articleTitle);
+  articleContainer.appendChild(articlePublishDate);
+  articleContainer.appendChild(firstParagraphContent);
+  articleContainer.appendChild(secondParagraphContent);
+  articleContainer.appendChild(thirdParagraphContent);
+  articleContainer.appendChild(expandButton);
+
+  // Add classes to elements
+  articleContainer.classList.add("article");
+  articleTitle.classList.add("title");
+  articlePublishDate.classList.add("pubDate");
+  firstParagraphContent.classList.add("paragraphContent");
+  secondParagraphContent.classList.add("paragraphContent");
+  thirdParagraphContent.classList.add("paragraphContent");
+  expandButton.classList.add("expandButton");
+
+  // Add content to the elements we created.
+  articleTitle.textContent = `${newsfeedObject.title}`;
+  articlePublishDate.textContent = `${newsfeedObject.date}`;
+  firstParagraphContent.textContent = `${newsfeedObject.firstParagraph}`;
+  secondParagraphContent.textContent = `${newsfeedObject.secondParagraph}`;
+  thirdParagraphContent.textContent = `${newsfeedObject.thirdParagraph}`;
+  expandButton.textContent = "expand";
+
+  console.log(articleContainer);
+  // Expand the article on click;
+  expandButton.addEventListener("click", () => articleContainer.classList.toggle("article-open"));
+
+  return articleContainer;
+}
+// grab all the articles and then the body to append the articles to the body.
+const articles = document.querySelectorAll(".article");
+const body = document.querySelector("body");
+
+data.forEach( newsfeedObject => body.appendChild( createArticleComponent(newsfeedObject) ));
+
+
